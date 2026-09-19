@@ -47,9 +47,7 @@ def calculate_bmi():
     """Расчет индекса массы тела"""
     bmi = user_weight / (user_height ** 2)
 
-    bmi = round(bmi, 1)
-
-    return bmi
+    return round(bmi, 1)
 
 
 # Функция расчета нормы потребления воды
@@ -59,12 +57,11 @@ def calculate_water_norm():
     MILLILITRES_IN_LITRES = 1000
 
     water_norm_ml = user_weight * WATER_PER_KG / MILLILITRES_IN_LITRES
-    water_norm_l = round(water_norm_ml, 1)
 
-    return water_norm_l
+    return round(water_norm_ml, 1)
 
 
-# Расчет индекса массы тела
+# Расчет индекса массы телаclear
 bmi = calculate_bmi()
 
 # Расчет нормы потребления воды
