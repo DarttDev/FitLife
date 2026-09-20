@@ -25,49 +25,79 @@ while True:
 
 # Инициализация антропоментрии
 while True:
+
     user_weight = input('Введите свой вес (кг.): ')
+
     try:
+
         user_weight = float(user_weight)
+
         break
+
     except ValueError:
+
         print('Некорректное значение веса')
         print('Пожалуйста, введите цифры')
+
 while True:
+
     user_height = input('Введите свой рост в метрах (м.). (Пример: 1.80) : ')
+
     try:
+
         user_height = float(user_height)
+
         break
+
     except ValueError:
+
         print('Некорректное значение роста')
         print('Пожалуйста, введите цифры')
 
 
-# Функция расчета индекса массы тела
-def calculate_bmi():
-    """Расчет индекса массы тела"""
-    bmi = user_weight / (user_height ** 2)
+def calculate_bmi(weight, height):
+    """
+    Расчет индекса массы тела
+
+    Args:
+        weight(float): Вес пользователя в кг
+        height(float): Рост пользователя в метрах
+
+    Returns:
+        float: ИМТ пользователя
+    """
+    bmi = weight / (height ** 2)
 
     return round(bmi, 1)
 
 
-# Функция расчета нормы потребления воды
-def calculate_water_norm():
-    """Расчет нормы потребления воды"""
-    WATER_PER_KG = 30
-    MILLILITRES_IN_LITRES = 1000
+WATER_PER_KG = 30
+MILLILITRES_IN_LITRES = 1000
+LENGTH_STRING_DELIMETR = 30
 
-    water_norm_ml = user_weight * WATER_PER_KG / MILLILITRES_IN_LITRES
 
-    return round(water_norm_ml, 1)
+def calculate_water_norm(weight):
+    """
+    Расчет нормы потребления воды
+
+    Args:
+        weight(float): Вес пользователя (кг)
+
+    Returns:
+        float: Норма потребления воды (литры)
+    """
+    water_norm_l = weight * WATER_PER_KG / MILLILITRES_IN_LITRES
+
+    return round(water_norm_l, 1)
 
 
 # Расчет индекса массы телаclear
-bmi = calculate_bmi()
+bmi = calculate_bmi(user_weight, user_height)
 
 # Расчет нормы потребления воды
-water_norm = calculate_water_norm()
+water_norm = calculate_water_norm(user_weight)
 
-print('=' * 30)
+print('=' * LENGTH_STRING_DELIMETR)
 print()
 print(f'Пользователь: {user_name}')
 print(f'Возраст: {user_age} л.')
