@@ -91,7 +91,7 @@ def calculate_water_norm(weight):
     return round(water_norm_l, 1)
 
 
-# Расчет индекса массы телаclear
+# Расчет индекса массы тела
 bmi = calculate_bmi(user_weight, user_height)
 
 # Расчет нормы потребления воды
